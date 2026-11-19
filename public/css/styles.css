@@ -155,3 +155,115 @@ input[type="text"], select {
     margin-bottom: 15px;
     color: var(--text-color);
 }
+
+/* ===================================================== */
+/* Estilos agregados para el flujo conectado a la BD      */
+/* ===================================================== */
+
+nav ul li a.active { color: #C2A883; }
+
+.user-info { display: flex; flex-direction: column; gap: 2px; }
+.logout-form button {
+    background: none; border: none; color: #C2A883; font-size: 10px;
+    cursor: pointer; padding: 0; text-align: left; text-decoration: underline;
+}
+
+/* mensajes */
+.alert { margin: 20px 40px 0; padding: 12px 16px; border-radius: 6px; font-size: 14px; }
+.alert-ok { background: var(--success-bg); color: var(--success-text); border: 1px solid #b7dfc0; }
+.alert-error { background: #F8D7DA; color: #842029; border: 1px solid #f1aeb5; }
+.field-error { color: #842029; font-size: 12px; margin: -10px 0 12px; }
+
+/* insignias de estado */
+.badge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.badge-libre { background: var(--success-bg); color: var(--success-text); }
+.badge-ocupada { background: #EFE7DA; color: #5D4037; }
+.badge-abierta { background: #E3ECF5; color: #2C4A6B; }
+.badge-espera { background: var(--warning-bg); color: var(--warning-text); }
+.badge-sin-enviar { background: #F8D7DA; color: #842029; }
+.badge-admin { background: #3E2723; color: #F5EAD1; }
+
+/* filtros (Todas · 12 / Libres · 5) */
+.filtros { display: flex; gap: 8px; margin-bottom: 15px; flex-wrap: wrap; }
+.filtro {
+    font-size: 12px; padding: 5px 12px; border-radius: 4px; text-decoration: none;
+    border: 1px solid var(--border-color); color: var(--text-color); background: var(--card-bg); cursor: pointer;
+}
+.filtro.activo { background: var(--header-bg); color: #fff; border-color: var(--header-bg); }
+
+.section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.section-head h4 { margin: 0; }
+
+/* tarjetas de mesa */
+a.mesa-card { display: block; text-decoration: none; color: inherit; }
+.mesa-card.seleccionada { border: 2px solid var(--primary-color); background: #EBCB9B; }
+.mesa-card.ocupada { background-color: #E8D5B5; }
+.mesa-card.esperando { border: 2px solid #FFC107; }
+.mesa-card.abierta { border: 2px dashed var(--border-color); }
+.mesa-card .status { font-weight: 600; }
+
+/* contador − 2 + */
+.stepper { display: flex; gap: 10px; align-items: center; margin: 10px 0 20px 0; }
+.stepper input { text-align: center; margin: 0 !important; }
+.stepper .btn { width: 40px; }
+.mini-stepper { display: flex; gap: 5px; align-items: center; }
+.mini-stepper form { margin: 0; }
+.mini-stepper .btn { padding: 5px 10px; width: auto; }
+.mini-stepper .qty { min-width: 18px; text-align: center; font-weight: 700; font-size: 13px; }
+.btn[disabled] { opacity: .4; cursor: not-allowed; }
+
+.btn-block { display: block; text-align: center; text-decoration: none; }
+.btn-sm { padding: 6px 10px; font-size: 12px; width: auto; }
+.btn-danger { background: transparent; border: 1px solid #a33; color: #a33; }
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.muted { color: var(--text-light); font-size: 12px; }
+
+/* ticket */
+.ticket-line { border-bottom: 1px solid var(--border-color); padding: 10px 0; display: flex; gap: 10px; align-items: flex-start; }
+.ticket-line .cant { background: #E8D5B5; border-radius: 4px; padding: 2px 8px; font-weight: 700; font-size: 13px; }
+.ticket-line .desc { flex: 1; font-size: 13px; }
+.ticket-line .importe { font-weight: 700; font-size: 13px; }
+.ticket-line .nota { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+.nota-form { display: flex; gap: 5px; margin-top: 6px; }
+.nota-form input { margin: 0 !important; padding: 4px 6px !important; font-size: 11px; }
+.ticket-total { display: flex; justify-content: space-between; align-items: baseline; margin: 15px 0; font-size: 13px; }
+.ticket-total strong { font-size: 22px; }
+
+/* tablas */
+.tabla { width: 100%; font-size: 14px; border-collapse: collapse; }
+.tabla th { text-align: left; font-size: 11px; text-transform: uppercase; padding: 10px 6px; border-bottom: 1px solid var(--border-color); }
+.tabla td { padding: 10px 6px; border-bottom: 1px solid #E5D4B7; }
+.tabla .num { text-align: right; }
+.tabla .acciones { display: flex; gap: 6px; justify-content: flex-end; }
+.tabla .acciones form { margin: 0; }
+
+/* opciones de cobro */
+.opciones { display: flex; gap: 10px; margin-bottom: 20px; }
+.opcion { flex: 1; position: relative; }
+.opcion input { position: absolute; opacity: 0; }
+.opcion span {
+    display: block; text-align: center; padding: 10px; border: 1px solid var(--primary-color);
+    border-radius: 4px; color: var(--primary-color); font-weight: 600; font-size: 13px; cursor: pointer;
+}
+.opcion input:checked + span { background: #EBCB9B; }
+.fila { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px; }
+
+/* formularios generales */
+input[type="email"], input[type="password"], input[type="number"], input[type="date"], textarea {
+    width: 100%; padding: 10px; background-color: var(--card-bg); border: 1px solid var(--border-color);
+    border-radius: 4px; margin-bottom: 15px; color: var(--text-color);
+}
+label.campo { font-size: 12px; display: block; margin-bottom: 4px; font-weight: 600; }
+.check { font-size: 13px; display: flex; gap: 8px; align-items: center; margin-bottom: 15px; }
+
+/* cocina */
+.comanda { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; }
+.comanda h4 { display: flex; justify-content: space-between; margin-bottom: 10px; }
+
+/* estadísticas admin */
+.stat { font-size: 26px; font-weight: 700; margin: 6px 0; }
+a.mesa-card h3 { border: none; padding: 0; margin-bottom: 6px; }
+
+/* búsqueda */
+.oculto { display: none !important; }
