@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\MetodoPago;
 use App\Http\Controllers\Controller;
+use App\Models\Ingrediente;
 use App\Models\Mesa;
 use App\Models\Pago;
 use App\Models\Pedido;
@@ -23,6 +24,7 @@ class DashboardController extends Controller
         return view('admin', [
             'usuarios' => User::count(),
             'productos' => Producto::count(),
+            'ingredientes' => Ingrediente::count(),
             'mesas' => Mesa::activas()->count(),
             'mesasAbiertas' => Pedido::enMesa()->count(),
             'ventasHoy' => (float) $pagosHoy->sum('total'),

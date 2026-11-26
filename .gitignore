@@ -25,3 +25,7 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Mediciones de rendimiento
+/database/rendimiento.sqlite
+/docs/rendimiento/perfiles/cachegrind.out.*

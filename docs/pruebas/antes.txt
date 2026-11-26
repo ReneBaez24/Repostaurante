@@ -1,0 +1,52 @@
+PHPUnit 12.5.44 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.6
+Configuration: phpunit.xml
+
+Time: 00:01.273, Memory: 36.50 MB
+
+Calculadora Cuenta (Tests\Unit\CalculadoraCuenta)
+ ✘ Calcula impuesto incluido propina y total
+   │
+   │ RuntimeException: Pendiente de implementar
+   │
+   │ app/Support/CalculadoraCuenta.php:12
+   │ tests/Unit/CalculadoraCuentaTest.php:17
+   │
+
+Codigo Barras (Tests\Unit\CodigoBarras)
+ ✘ Acepta codigos validos y los normaliza
+   │
+   │ RuntimeException: Pendiente de implementar
+   │
+   │ app/Support/CodigoBarras.php:12
+   │ tests/Unit/CodigoBarrasTest.php:17
+   │
+ ✘ Rechaza codigos invalidos con mensajes comprensibles
+   │
+   │ RuntimeException: Pendiente de implementar
+   │
+   │ app/Support/CodigoBarras.php:22
+   │ tests/Unit/CodigoBarrasTest.php:43
+   │
+
+Open Food Facts Client (Tests\Unit\OpenFoodFactsClient)
+ ✘ Convierte fallas de la api en mensajes comprensibles
+   │
+   │ RuntimeException: Pendiente de implementar
+   │
+   │ app/Services/OpenFoodFacts/OpenFoodFactsClient.php:9
+   │ tests/Unit/OpenFoodFactsClientTest.php:42
+   │
+
+Producto Envasado (Tests\Unit\ProductoEnvasado)
+ ✘ Traduce la respuesta de la api y tolera datos faltantes
+   │
+   │ RuntimeException: Pendiente de implementar
+   │
+   │ app/Services/OpenFoodFacts/ProductoEnvasado.php:24
+   │ tests/Unit/ProductoEnvasadoTest.php:17
+   │
+
+ERRORS!
+Tests: 5, Assertions: 0, Errors: 5.

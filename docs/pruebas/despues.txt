@@ -1,0 +1,21 @@
+PHPUnit 12.5.44 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.6
+Configuration: phpunit.xml
+
+Time: 00:00.106, Memory: 40.50 MB
+
+Calculadora Cuenta (Tests\Unit\CalculadoraCuenta)
+ ✔ Calcula impuesto incluido propina y total
+
+Codigo Barras (Tests\Unit\CodigoBarras)
+ ✔ Acepta codigos validos y los normaliza
+ ✔ Rechaza codigos invalidos con mensajes comprensibles
+
+Open Food Facts Client (Tests\Unit\OpenFoodFactsClient)
+ ✔ Convierte fallas de la api en mensajes comprensibles
+
+Producto Envasado (Tests\Unit\ProductoEnvasado)
+ ✔ Traduce la respuesta de la api y tolera datos faltantes
+
+OK (5 tests, 51 assertions)

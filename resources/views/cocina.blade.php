@@ -10,7 +10,7 @@
     </div>
 
     @if ($pedidos->isEmpty())
-        <p class="muted">No hay comandas pendientes.</p>
+        <p class="muted">No hay comandas pendientes. 🐔</p>
     @endif
 
     <div class="mesas-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
@@ -25,7 +25,7 @@
                         <span class="cant">{{ $item->cantidad }}</span>
                         <div class="desc">
                             {{ $item->producto->nombre }}
-                            @if ($item->notas) <div class="nota"> {{ $item->notas }}</div> @endif
+                            @if ($item->notas) <div class="nota">📝 {{ $item->notas }}</div> @endif
                             <div class="nota">Enviado {{ $item->enviado_at?->format('H:i') }}</div>
                         </div>
                         <form action="{{ route('cocina.preparado', $item) }}" method="POST">

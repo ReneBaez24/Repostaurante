@@ -55,4 +55,12 @@ Route::middleware(['auth', 'rol:admin'])->prefix('admin')->name('admin.')->group
     Route::resource('usuarios', Admin\UsuarioController::class)->except('show')->parameters(['usuarios' => 'usuario']);
     Route::resource('productos', Admin\ProductoController::class)->except('show')->parameters(['productos' => 'producto']);
     Route::resource('mesas', Admin\MesaController::class)->except('show')->parameters(['mesas' => 'mesa']);
+
+    // Inventario de ingredientes envasados (Open Food Facts)
+    Route::get('/inventario', [Admin\InventarioController::class, 'index'])->name('inventario.index');
+    Route::get('/inventario/consultar', [Admin\InventarioController::class, 'consultar'])->name('inventario.consultar');
+    Route::get('/inventario/api/{codigo}', [Admin\InventarioController::class, 'api'])->name('inventario.api');
+    Route::post('/inventario', [Admin\InventarioController::class, 'store'])->name('inventario.store');
+    Route::patch('/inventario/{ingrediente}', [Admin\InventarioController::class, 'update'])->name('inventario.update');
+    Route::delete('/inventario/{ingrediente}', [Admin\InventarioController::class, 'destroy'])->name('inventario.destroy');
 });

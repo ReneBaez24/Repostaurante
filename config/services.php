@@ -35,4 +35,15 @@ return [
         ],
     ],
 
+    'openfoodfacts' => [
+        // Para pruebas sin cuota usa https://world.openfoodfacts.net
+        'base_url' => env('OPENFOODFACTS_URL', 'https://world.openfoodfacts.org'),
+        // Open Food Facts pide un User-Agent con el nombre de la app y un correo de contacto
+        'user_agent' => env('OPENFOODFACTS_USER_AGENT', 'PunkBrothers/1.0 (contacto@punkbrothers.com)'),
+        'timeout' => (int) env('OPENFOODFACTS_TIMEOUT', 8),
+        'cache_minutos' => (int) env('OPENFOODFACTS_CACHE_MINUTOS', 1440),
+        // Peticiones simultáneas al importar por lotes (la API permite ~100 consultas de producto por minuto)
+        'concurrencia' => (int) env('OPENFOODFACTS_CONCURRENCIA', 10),
+    ],
+
 ];

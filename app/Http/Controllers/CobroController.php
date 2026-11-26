@@ -7,6 +7,7 @@ use App\Enums\EstadoPedido;
 use App\Enums\MetodoPago;
 use App\Models\Pago;
 use App\Models\Pedido;
+use App\Support\CalculadoraCuenta;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -58,7 +59,7 @@ class CobroController extends Controller
 
             // Los importes se recalculan en el servidor; nunca se confía en lo que manda el navegador
             $consumo = $pedido->total();
-            $propina = round($consumo * $datos['propina'] / 100, 2);
+            $propina = CalculadoraCuenta::propina($consumo, (int) $datos['propina']);
 
             $pago = Pago::create([
                 'pedido_id' => $pedido->id,
@@ -68,7 +69,7 @@ class CobroController extends Controller
                 'impuesto' => self::impuestoIncluido($consumo),
                 'propina_porcentaje' => $datos['propina'],
                 'propina' => $propina,
-                'total' => round($consumo + $propina, 2),
+                'total' => CalculadoraCuenta::total($consumo, (int) $datos['propina']),
             ]);
 
             $pedido->update(['estado' => EstadoPedido::Pagado, 'cerrado_at' => now()]);
@@ -85,11 +86,9 @@ class CobroController extends Controller
             ->with('ok', "Mesa {$pedido->mesa->numero} cobrada ($".number_format((float) $resultado->total, 2).'). Libérala cuando los clientes se retiren.');
     }
 
-    /** Los precios ya incluyen impuesto: impuesto = total − total / (1 + tasa). */
+    /** Los precios ya incluyen impuesto (ver App\Support\CalculadoraCuenta). */
     public static function impuestoIncluido(float $total): float
     {
-        $tasa = (float) config('restaurante.impuesto');
-
-        return round($total - $total / (1 + $tasa), 2);
+        return CalculadoraCuenta::impuestoIncluido($total, (float) config('restaurante.impuesto'));
     }
 }

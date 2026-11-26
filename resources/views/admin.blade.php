@@ -24,6 +24,11 @@
                 <div class="stat">{{ $mesasAbiertas }}/{{ $mesas }}</div>
                 <p>Abiertas ahora / total</p>
             </a>
+            <a href="{{ route('admin.inventario.index') }}" class="mesa-card" style="text-align: center;">
+                <h3>Inventario</h3>
+                <div class="stat">{{ $ingredientes }}</div>
+                <p>Ingredientes por código de barras</p>
+            </a>
             <a href="{{ route('admin.reportes') }}" class="mesa-card" style="text-align: center;">
                 <h3>Reportes</h3>
                 <div class="stat">${{ number_format($ventasHoy, 2) }}</div>

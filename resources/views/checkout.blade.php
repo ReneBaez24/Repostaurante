@@ -66,7 +66,7 @@
             @foreach ($metodos as $metodo)
                 <label class="opcion">
                     <input type="radio" name="metodo" value="{{ $metodo->value }}" @checked(old('metodo', 'tarjeta') === $metodo->value)>
-                    <span>{{ $metodo === \App\Enums\MetodoPago::Tarjeta ? '' : '' }} {{ $metodo->etiqueta() }}</span>
+                    <span>{{ $metodo === \App\Enums\MetodoPago::Tarjeta ? '💳' : '💵' }} {{ $metodo->etiqueta() }}</span>
                 </label>
             @endforeach
         </div>
