@@ -23,7 +23,6 @@
                         <li><a href="{{ route('admin.dashboard') }}" @class(['active' => request()->routeIs('admin.*')])>Admin</a></li>
                     @endif
                 @endauth
-                <li><a href="#">Sobre Nosotros</a></li>
                 @guest
                     <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
                 @endguest
