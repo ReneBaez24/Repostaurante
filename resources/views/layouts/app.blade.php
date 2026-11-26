@@ -9,9 +9,8 @@
 <body>
     <header>
         <div class="logo-container">
-            <!-- AQUI VA EL LOGO PERO EL FOKIN WASAP LE QUITO LA TRANSPARENCIA -->
-            <!-- alrato lo arreglo -->
-            <img src="{{ asset('img/logo.png') }}" alt="Logo" style="height: 40px; display: none;">
+            <!-- logo gaming -->
+            <img src="{{ asset('img/logo.png') }}" alt="Logo" style="height: 40px;">
             <h1>PUNK BROTHERS</h1>
             <p>LOS MEJORES POLLOS AL VAPOR</p>
         </div>
